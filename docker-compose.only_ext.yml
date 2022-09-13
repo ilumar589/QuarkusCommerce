@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  catalogdb:
+    container_name: catalogdb
+    image: mongo:5.0
+    volumes:
+      - ~/apps/mongo:/data/db
+
+volumes:
+  mongo_data:

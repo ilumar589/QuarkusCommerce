@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  catalogdb:
+    image: mongo:5.0
+    volumes:
+      - ~/apps/mongo:/data/db
+
+  catalog.api:
+    image: quarkus/catalog-jvm
+    build:
+      context: .
+      dockerfile: Catalog.API/src/main/docker/Dockerfile.jvm
+      args:
+        - t quarkus/catalog-jvm
+
+
+volumes:
+  mongo_data:

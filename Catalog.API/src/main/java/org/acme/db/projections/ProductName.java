@@ -1,4 +1,4 @@
-package org.acme.db.dtos;
+package org.acme.db.projections;
 
 import io.quarkus.mongodb.panache.common.ProjectionFor;
 import org.acme.db.entities.Product;

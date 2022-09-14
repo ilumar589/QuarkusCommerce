@@ -2,6 +2,7 @@ package org.acme.controllers;
 
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
+import org.acme.controllers.dtos.ProductsPageInfo;
 import org.acme.db.entities.Product;
 import org.acme.services.ProductService;
 import org.bson.types.ObjectId;
@@ -23,6 +24,13 @@ public class ProductController {
     @Produces(MediaType.APPLICATION_JSON)
     public Multi<Product> getProducts() {
         return productService.getProducts();
+    }
+
+    @GET
+    @Path("/{page}/{pageSize}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<ProductsPageInfo> getProducts(int page, int pageSize) {
+        return productService.getPageInfo(page, pageSize);
     }
 
     @POST

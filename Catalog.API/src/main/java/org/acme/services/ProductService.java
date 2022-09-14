@@ -1,9 +1,7 @@
 package org.acme.services;
 
-import io.quarkus.panache.common.Page;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
-import io.smallrye.mutiny.groups.UniJoin;
 import org.acme.controllers.dtos.ProductsPageInfo;
 import org.acme.db.entities.Product;
 import org.acme.db.repositories.ProductRepository;

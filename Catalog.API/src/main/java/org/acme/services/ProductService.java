@@ -26,7 +26,7 @@ public class ProductService {
                 .combine()
                 .all()
                 .unis(
-                        getTotalProductsCounts(),
+                        getTotalProductsCount(),
                         getTotalPages(page, pageSize),
                         getProductsPaged(page, pageSize).collect().asList()
                 )
@@ -48,7 +48,7 @@ public class ProductService {
                 .stream();
     }
 
-    private Uni<Long> getTotalProductsCounts() {
+    private Uni<Long> getTotalProductsCount() {
         return productRepository.count();
     }
 

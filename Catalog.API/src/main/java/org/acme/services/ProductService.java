@@ -33,12 +33,16 @@ public class ProductService {
                 .combinedWith(ProductsPageInfo::new);
     }
 
-    public Uni<Product> createOrUpdateProduct(Product product) {
-        return productRepository.persistOrUpdate(product);
+    public Uni<Void> createOrUpdateProduct(Iterable<Product> products) {
+        return productRepository.persistOrUpdate(products);
     }
 
     public Uni<Boolean> deleteProduct(ObjectId productId) {
         return productRepository.deleteById(productId);
+    }
+
+    public Uni<Long> deleteAllProducts() {
+        return productRepository.deleteAll();
     }
 
     private Multi<Product> getProductsPaged(int page, int pageSize) {

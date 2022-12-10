@@ -10,6 +10,7 @@ import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/products")
 public class ProductController {
@@ -36,8 +37,8 @@ public class ProductController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Uni<Product> createOrUpdateProduct(@RequestBody Product product) {
-        return productService.createOrUpdateProduct(product);
+    public Uni<Void> createOrUpdateProduct(@RequestBody Product product) {
+        return productService.createOrUpdateProduct(List.of(product));
     }
 
     @DELETE
